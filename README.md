@@ -1,5 +1,5 @@
-# Задание
-Задача 1
+# SQL
+
 Дана таблица task1_emp, состоящая из 3 полей: Name, Department, Age. Name это имя сотрудника, Department это название
 отдела, в котором работает сотрудник, Age возраст сотрудника.
 
@@ -9,7 +9,6 @@
 Задание 1.2
 Получить список отделов, где количество сотрудников старше 35 лет, больше 3.
 
-Задача 2
 Даны две таблицы task2_news и task2_author. Таблица task2_news состоит из полей: NewsID (Primary Key), Title, Content,
 AuthorID. Таблица task2_author состоит из полей AuthorID (Primary Key), Name. Поле task2_news.AuthorID является внешним
 ключом на поле task2_author.AuthorID.
