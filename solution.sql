@@ -21,7 +21,7 @@ SELECT aut.name,
 FROM task2_author AS aut
 LEFT JOIN task2_news AS news
 	ON aut.AuthorID = news.AuthorID
-GROUP BY  aut.AuthorID
+GROUP BY  aut.AuthorID;
 
 -- задание 2.2
 
@@ -31,7 +31,7 @@ FROM task2_author AS aut
 LEFT JOIN task2_news AS news
 	ON aut.AuthorID = news.AuthorID
 GROUP BY  aut.AuthorID
-HAVING COUNT(news.AuthorID) >= 1
+HAVING COUNT(news.AuthorID) >= 1;
 
 -- задание 3
 
@@ -49,4 +49,4 @@ WHERE NOT EXISTS
 	(SELECT NULL
 	FROM task4 mi
 	WHERE mi.ID = mo.ID + 1 )
-ORDER BY  ID LIMIT 1
+ORDER BY  ID LIMIT 1;
