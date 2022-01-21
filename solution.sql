@@ -16,8 +16,7 @@ HAVING COUNT(`Department`) > 3;
 -- задание 2.1
 
 SELECT aut.name,
-		 IFNULL(COUNT(news.AuthorID),
-		 0) AS cnt
+		 COUNT(news.AuthorID) AS cnt
 FROM task2_author AS aut
 LEFT JOIN task2_news AS news
 	ON aut.AuthorID = news.AuthorID
@@ -30,8 +29,8 @@ SELECT aut.name,
 FROM task2_author AS aut
 LEFT JOIN task2_news AS news
 	ON aut.AuthorID = news.AuthorID
-GROUP BY  aut.AuthorID
-HAVING COUNT(news.AuthorID) >= 1;
+WHERE news.AuthorID IS NOT NULL
+GROUP BY  aut.AuthorID;
 
 -- задание 3
 
@@ -43,10 +42,9 @@ HAVING COUNT(*) >= 2;
 
 -- задание 4
 
-SELECT ID + 1 AS num
+SELECT mo.ID + 1 AS num
 FROM task4 mo
-WHERE NOT EXISTS
-	(SELECT NULL
-	FROM task4 mi
-	WHERE mi.ID = mo.ID + 1 )
-ORDER BY  ID LIMIT 1;
+LEFT JOIN task4 mi
+	ON (mi.ID) = (mo.ID +1)
+WHERE mi.ID IS NULL
+ORDER BY  mo.ID LIMIT 1;
